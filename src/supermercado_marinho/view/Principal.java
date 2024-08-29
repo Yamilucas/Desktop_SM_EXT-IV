@@ -98,10 +98,10 @@ public class Principal extends JFrame {
 
         // Ação dos botões de navegação
         estoqueView.getBtnVoltarMain().addActionListener(e -> mostrarMainPanel());
-        estoqueView.getBtnIrVenda().addActionListener(e -> mostrarVendaView());
+     
 
         vendaView.getBtnVoltarMain().addActionListener(e -> mostrarMainPanel());
-        vendaView.getBtnIrEstoque().addActionListener(e -> mostrarEstoqueView());
+       
 
         loginView.getBtnVoltarMain().addActionListener(e -> mostrarMainPanel());
         cadastroView.getBtnVoltarMain().addActionListener(e -> mostrarMainPanel());

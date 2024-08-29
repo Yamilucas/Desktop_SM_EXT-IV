@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class VendaView extends JPanel {
     private JButton btnVoltarMain;
-    private JButton btnIrEstoque;
     private JLabel lblCliente;
     private JComboBox<String> comboBoxCliente;
     private JLabel lblCategoriaProduto;
@@ -15,13 +14,14 @@ public class VendaView extends JPanel {
     private JLabel lblQuantidade;
     private JTextField txtQuantidade;
     private JButton btnSimularVenda;
+    private JButton btnTerminarCompra;  // Botão "Terminar a compra"
     private JLabel lblSistemaDeVendas;
 
     public VendaView() {
         setLayout(new BorderLayout());
         
         Dimension buttonSize = new Dimension(200, 40);
-      
+
         // Criando o painel principal com padding
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
@@ -86,11 +86,17 @@ public class VendaView extends JPanel {
         centerPanel.add(txtQuantidade, gbc);
 
         // Botão de Simular Venda
-        btnSimularVenda = new JButton("Simular Venda");
+        btnSimularVenda = new JButton("Comprar o produto.");
         btnSimularVenda.setPreferredSize(componentSize);
         gbc.gridx = 1;
         gbc.gridy = 4;
         centerPanel.add(btnSimularVenda, gbc);
+
+        // Botão "Terminar a compra"
+        btnTerminarCompra = new JButton("Terminar a compra");
+        btnTerminarCompra.setPreferredSize(componentSize);
+        gbc.gridy = 5;  // Adicionando abaixo do botão "Comprar o produto"
+        centerPanel.add(btnTerminarCompra, gbc);
 
         // Adiciona o painel centralizado ao centro do mainPanel
         mainPanel.add(centerPanel, BorderLayout.CENTER);
@@ -101,21 +107,14 @@ public class VendaView extends JPanel {
         navGbc.insets = new Insets(10, 10, 10, 10); // Espaçamento entre os botões
         navGbc.anchor = GridBagConstraints.CENTER; // Centraliza os botões
 
-        // Botões Voltar ao Main e Ir para Estoque
+        // Botão Voltar ao Main
         btnVoltarMain = new JButton("Voltar ao Painel Principal");
-        btnIrEstoque = new JButton("Ir para Estoque");
-
-        // Definindo tamanho uniforme para os botões
         btnVoltarMain.setPreferredSize(buttonSize);
-        btnIrEstoque.setPreferredSize(buttonSize);
 
-        // Adicionando os botões ao painel de navegação
+        // Adicionando o botão ao painel de navegação
         navGbc.gridx = 0;
         navGbc.gridy = 0;
         navigationPanel.add(btnVoltarMain, navGbc);
-
-        navGbc.gridy = 1;
-        navigationPanel.add(btnIrEstoque, navGbc);
 
         // Adiciona o painel de navegação à parte inferior do mainPanel
         mainPanel.add(navigationPanel, BorderLayout.SOUTH);
@@ -128,7 +127,7 @@ public class VendaView extends JPanel {
         return btnVoltarMain;
     }
 
-    public JButton getBtnIrEstoque() {
-        return btnIrEstoque;
+    public JButton getBtnTerminarCompra() {  // Getter para o novo botão
+        return btnTerminarCompra;
     }
 }

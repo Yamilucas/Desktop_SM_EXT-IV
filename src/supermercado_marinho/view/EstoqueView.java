@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class EstoqueView extends JPanel {
     private JButton btnVoltarMain;
-    private JButton btnIrVenda;
     private JLabel lblProduto;
     private JTextField txtProduto;
     private JLabel lblQuantidade;
@@ -100,21 +99,14 @@ public class EstoqueView extends JPanel {
         navGbc.insets = new Insets(10, 10, 10, 10); // Espaçamento entre os botões
         navGbc.anchor = GridBagConstraints.CENTER; // Centraliza os botões
 
-        // Botões Voltar ao Main e Ir para Venda
+        // Botão Voltar ao Main
         btnVoltarMain = new JButton("Voltar ao Painel Principal");
-        btnIrVenda = new JButton("Ir para Venda");
-
-        // Definindo tamanho uniforme para os botões
         btnVoltarMain.setPreferredSize(buttonSize);
-        btnIrVenda.setPreferredSize(buttonSize);
 
-        // Adicionando os botões ao painel de navegação
+        // Adicionando o botão ao painel de navegação
         navGbc.gridx = 0;
         navGbc.gridy = 0;
         navigationPanel.add(btnVoltarMain, navGbc);
-
-        navGbc.gridy = 1;
-        navigationPanel.add(btnIrVenda, navGbc);
 
         // Adiciona o painel de navegação à parte inferior da EstoqueView
         mainPanel.add(navigationPanel, BorderLayout.SOUTH);
@@ -125,9 +117,5 @@ public class EstoqueView extends JPanel {
 
     public JButton getBtnVoltarMain() {
         return btnVoltarMain;
-    }
-
-    public JButton getBtnIrVenda() {
-        return btnIrVenda;
     }
 }
