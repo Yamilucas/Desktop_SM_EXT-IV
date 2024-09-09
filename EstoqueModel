@@ -1,0 +1,62 @@
+import academia.controller.Conector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Estoque {
+    private String nomeProduto;
+    private int quantidadeProduto;
+    private String categoriaProduto;
+
+        public String getNomeProduto() {
+            return nomeProduto;
+        }
+
+        public void setNomeProduto(String nomeProduto) {
+            this.nomeProduto = nomeProduto;
+        }
+
+        public int getQuantidadeProduto() {
+            return quantidadeProduto;
+        }
+
+        public void setQuantidadeProduto(int quantidadeProduto) {
+            this.quantidadeProduto = quantidadeProduto;
+        }
+
+        public String getCategoriaProduto() {
+            return categoriaProduto;
+        }
+
+        public void setCategoriaProduto(String categoriaProduto) {
+            this.categoriaProduto = categoriaProduto;
+        }
+
+        public static List<Estoque> getEstoquepro() {
+            List<Estoque> estoquepro = new ArrayList<>();
+            //String sql =
+
+            try (Connection connection = Conector.conectar();
+                 PreparedStatement statement = connection.prepareStatement(sql);
+                 ResultSet resultSet = statement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    Estoque estoque = new Estoque();
+                    estoque.setNomeProduto(resultSet.getString("nomeProduto"));
+                    estoque.setQuantidadeProduto(resultSet.getInt("quantidadeProduto"));
+                    estoque.setCategoriaProduto(resultSet.getString("categoriaProduto"));
+
+                    estoquepro.add(estoque);
+               }
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+
+           return Estoquepro;
+            
+        }
+
+}
